@@ -35,8 +35,8 @@ app.use("/api/photos", photoRouter);
 app.use("/api/albums", albumRouter);
 app.use("/api/auth", authRouter);
 
-server.use("/", express.static("./files/frontend"));
-server.get("/*", (req, res) =>
+app.use("/", express.static("./files/frontend"));
+app.get("/*", (req, res) =>
   res.sendFile(__dirname + "/files/frontend/index.html")
 );
 
