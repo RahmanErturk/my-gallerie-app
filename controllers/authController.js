@@ -24,14 +24,7 @@ export const register = async (req, res, next) => {
       ...req.body,
       password: hashedPassword,
       likedPhotos: [],
-      albums: [
-        {
-          _id: "63d9261eb41c9f4d7b36a94c",
-        },
-        {
-          _id: "63d9261eb41c9f4d7b36a94d",
-        },
-      ],
+      albums: [],
     });
 
     res.status(201).json({
