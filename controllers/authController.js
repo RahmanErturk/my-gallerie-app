@@ -21,7 +21,8 @@ export const register = async (req, res, next) => {
   const hashedPassword = await bcrypt.hash(req.body.password, 12);
   try {
     const newUser = await authModel.create({
-      ...req.body,
+      userName: req.body.userName,
+      email: req.body.email,
       password: hashedPassword,
       likedPhotos: [],
       albums: [],
