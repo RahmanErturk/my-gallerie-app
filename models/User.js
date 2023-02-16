@@ -1,5 +1,26 @@
 import { Schema, model } from "mongoose";
 
+const albumSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    date: Date,
+    creator: String,
+    photos: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Photo",
+      },
+    ],
+  },
+  {
+    versionKey: false,
+  }
+);
+
 const userSchema = new Schema(
   {
     userName: {
@@ -20,12 +41,7 @@ const userSchema = new Schema(
         ref: "Photo",
       },
     ],
-    albums: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Album",
-      },
-    ],
+    albums: [albumSchema],
   },
   {
     versionKey: false,
